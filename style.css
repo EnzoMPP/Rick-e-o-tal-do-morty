@@ -1,0 +1,194 @@
+@font-face {
+    font-family: 'Rick&Morty';
+    src: url('fonts_imgs/FontRick&Morty.ttf');
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    grid-area: main;
+}
+
+h1
+{
+    font-family: 'Rick&Morty',sans-serif;
+    text-align: center;
+    color: #2ecc71;
+
+}
+
+h2, h3 {
+    color: #2ecc71;
+    text-align: center;
+}
+
+
+
+
+header {
+    background-color: #34495e;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    grid-area: header;
+}
+
+.logo img {
+    height: 100px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin-left: 1rem;
+}
+
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+
+#personagens {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 1rem;
+}
+
+.character-info {
+    display: flex;
+    align-items: flex-start;
+    background-color: #34495e;
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%; 
+    gap: 50px;
+    box-sizing: border-box;
+}
+
+.character-info img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.character-details {
+    text-align: left;
+}
+
+.character-details p {
+    margin: 5px 0;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}
+
+button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+
+footer {
+    background-color: #34495e;
+    text-align: center;
+    padding: 0.5rem;
+    grid-area: footer;
+}
+
+
+.carregando {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.infos
+{
+    color:#2ecc71 ;
+}
+
+.carregando img {
+    width: 150px;
+    height: 150px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) { 
+    header {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 0.5rem 0;
+    }
+
+    .character-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .character-info img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
