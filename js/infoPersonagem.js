@@ -5,22 +5,22 @@ class InfoPersonagem {
         this.apiUrl = 'https://rickandmortyapi.com/api/character';
         this.currentCharacterId = 1;
 
-        this.characterImage = document.getElementById('character-image');
-        this.characterName = document.getElementById('character-name');
-        this.characterStatus = document.getElementById('character-status');
-        this.characterSpecies = document.getElementById('character-species');
-        this.characterGender = document.getElementById('character-gender');
-        this.characterOrigin = document.getElementById('character-origin');
-        this.characterLocation = document.getElementById('character-location');
-        this.prevButton = document.getElementById('prev-btn');
-        this.nextButton = document.getElementById('next-btn');
-        this.loading = document.querySelector('.carregando');
+        this.imagemPersonagem = document.getElementById('imagemPersonagem');
+        this.nomePersonagem = document.getElementById('nomePersonagem');
+        this.statusPersonagem = document.getElementById('statusPersonagem');
+        this.especiePersonagem = document.getElementById('especiePersonagem');
+        this.generoPersonagem = document.getElementById('generoPersonagem');
+        this.origemPersonagem = document.getElementById('origemPersonagem');
+        this.localPersonagem = document.getElementById('localPersonagem');
+        this.botaoAnterior = document.getElementById('anterior');
+        this.botaoProximo = document.getElementById('proximo');
+        this.carregamento = document.querySelector('.carregando');
 
-        this.setupEventListeners();
-        this.showCharacter();
+        this.iniciar();
+        this.mostrarPersonagem();
     }
 
-    async fetchCharacter(id) {
+    async fetchPersonagem(id) {
         try {
             const response = await fetch(`${this.apiUrl}/${id}`);
             if (!response.ok) {
@@ -35,38 +35,38 @@ class InfoPersonagem {
         }
     }
 
-    displayCharacter(personagem) {
+    exibicaoPersonagem(personagem) {
         if (!personagem) return;
 
-        this.characterImage.src = personagem.imagem;
-        this.characterName.textContent = personagem.nome;
-        this.characterStatus.textContent = `Status: ${personagem.status}`;
-        this.characterSpecies.textContent = `Espécie: ${personagem.especie}`;
-        this.characterGender.textContent = `Gênero: ${personagem.genero}`;
-        this.characterOrigin.textContent = `Origem: ${personagem.origem}`;
-        this.characterLocation.textContent = `Localização: ${personagem.localizacao}`;
+        this.imagemPersonagem.src = personagem.imagem;
+        this.nomePersonagem.textContent = personagem.nome;
+        this.statusPersonagem.innerHTML = `<span class=infos> Status: </span>${personagem.status}`;
+        this.especiePersonagem.innerHTML = `<span class=infos> Espécie: </span>${personagem.especie}`;
+        this.generoPersonagem.innerHTML = `<span class=infos>Gênero: </span>${personagem.genero}`;
+        this.origemPersonagem.innerHTML = `<span class=infos>Origem: </span>${personagem.origem}`;
+        this.localPersonagem.innerHTML = `<span class=infos>Localização: </span>${personagem.localizacao}`;
     }
 
-    async showCharacter() {
-        this.loading.style.display = 'flex';
-        const personagem = await this.fetchCharacter(this.currentCharacterId);
+    async mostrarPersonagem() {
+        this.carregamento.style.display = 'flex';
+        const personagem = await this.fetchPersonagem(this.currentCharacterId);
         setTimeout(() => {
-            this.displayCharacter(personagem);
-            this.loading.style.display = 'none';
+            this.exibicaoPersonagem(personagem);
+            this.carregamento.style.display = 'none';
         }, 300);
     }
 
-    setupEventListeners() {
-        this.prevButton.addEventListener('click', () => {
+    iniciar() {
+        this.botaoAnterior.addEventListener('click', () => {
             if (this.currentCharacterId > 1) {
                 this.currentCharacterId--;
-                this.showCharacter();
+                this.mostrarPersonagem();
             }
         });
 
-        this.nextButton.addEventListener('click', () => {
+        this.botaoProximo.addEventListener('click', () => {
             this.currentCharacterId++;
-            this.showCharacter();
+            this.mostrarPersonagem();
         });
     }
 }
