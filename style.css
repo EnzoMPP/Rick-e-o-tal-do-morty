@@ -1,129 +1,121 @@
+:root {
+    --corPrimaria: #2c3e50;
+    --corSecundaria: #34495e;
+    --corDestques: #2ecc71;
+    --corTextos: #ecf0f1;
+}
+
 @font-face {
     font-family: 'Rick&Morty';
     src: url('fonts_imgs/FontRick&Morty.ttf');
 }
 
-
-html, body {
-    height: 100%;
+body {
     margin: 0;
+    font-family: cursive, sans-serif;
 }
 
-body {
-    font-family: 'Press Start 2P', cursive;
-    background-color: #2c3e50;
-    color: #ecf0f1;
+
+.layout {
+    min-height: 100vh;
     display: grid;
+    grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
-    grid-template-areas: 
+    grid-template-areas:
         "header"
         "main"
         "footer";
+    background-color: var(--corPrimaria);
+    color: var(--corTextos);
 }
-
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-    grid-area: main;
-}
-
-h1
-{
-    font-family: 'Rick&Morty',sans-serif;
-    text-align: center;
-    color: #2ecc71;
-
-}
-
-h2, h3 {
-    color: #2ecc71;
-    text-align: center;
-}
-
-
 
 
 header {
-    background-color: #34495e;
+    font-family: 'Ricj&Morty', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    grid-area: header;
+    background-color: var(--corSecundaria);
     padding: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    grid-area: header;
+    gap: 1rem;
 }
 
 .logo img {
     height: 100px;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+
+.main {
+    grid-area: main;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-nav li {
-    margin-left: 1rem;
+h1 {
+    font-family: "Rick&Morty", sans-serif;
+    text-align: center;
+    color: var(--corDestques);
 }
 
-nav a {
-    color: #ecf0f1;
-    text-decoration: none;
+h2 {
+    color: var(--corDestques);
+    text-align: center;
 }
+
+h3 {
+    color: var(--corTextos);
+}
+
 
 
 #personagens {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 20px;
-    padding: 1rem;
+    gap: 1.5rem;
 }
 
-.character-info {
+.infoPersonagem {
     display: flex;
     align-items: flex-start;
-    background-color: #34495e;
-    padding: 40px;
+    background-color: var(--corSecundaria);
+    padding: 2rem;
     border-radius: 10px;
-    width: 100%; 
-    gap: 50px;
+    width: 100%;
+    gap: 2rem;
     box-sizing: border-box;
 }
 
-.character-info img {
+.infoPersonagem img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 20px;
+    margin-right: 1rem;
 }
 
-.character-details {
+.detalhesPersonagem {
     text-align: left;
 }
 
-.character-details p {
-    margin: 5px 0;
+.detalhesPersonagem p {
+    margin: 0.5rem 0;
 }
 
 
-.buttons {
+.botoes {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin: 20px;
+    gap: 0.5rem;
+    margin-top: 1rem;
 }
 
 button {
-    background-color: #2ecc71;
-    color: white;
-    padding: 10px 20px;
+    background-color: var(--corDestques);
+    color: var(--corTextos);
+    padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -132,10 +124,16 @@ button {
 
 
 footer {
-    background-color: #34495e;
-    text-align: center;
-    padding: 0.5rem;
     grid-area: footer;
+    background-color: var(--corSecundaria);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infos {
+    color: var(--corDestques);
 }
 
 
@@ -152,11 +150,6 @@ footer {
     z-index: 1000;
 }
 
-.infos
-{
-    color:#2ecc71 ;
-}
-
 .carregando img {
     width: 150px;
     height: 150px;
@@ -164,30 +157,23 @@ footer {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-@media (max-width: 768px) { 
-    header {
-        flex-direction: column;
-    }
 
-    nav ul {
+@media (max-width: 768px) {
+    .infoPersonagem {
         flex-direction: column;
         align-items: center;
     }
 
-    nav li {
-        margin: 0.5rem 0;
-    }
-
-    .character-info {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .character-info img {
+    .infoPersonagem img {
         margin-right: 0;
         margin-bottom: 1rem;
     }
