@@ -31,7 +31,7 @@ body {
 
 
 header {
-    font-family: 'Ricj&Morty', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Rick&Morty', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     grid-area: header;
     background-color: var(--corSecundaria);
     padding: 1rem;
