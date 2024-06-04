@@ -3,7 +3,7 @@ import { Personagem } from './personagem.js';
 class InfoPersonagem {
     constructor() {
         this.apiUrl = 'https://rickandmortyapi.com/api/character';
-        this.currentCharacterId = 1;
+        this.IDpersonagem = 1;
 
         this.imagemPersonagem = document.getElementById('imagemPersonagem');
         this.nomePersonagem = document.getElementById('nomePersonagem');
@@ -49,7 +49,7 @@ class InfoPersonagem {
 
     async mostrarPersonagem() {
         this.carregamento.style.display = 'flex';
-        const personagem = await this.fetchPersonagem(this.currentCharacterId);
+        const personagem = await this.fetchPersonagem(this.IDpersonagem);
         setTimeout(() => {
             this.exibicaoPersonagem(personagem);
             this.carregamento.style.display = 'none';
@@ -58,17 +58,50 @@ class InfoPersonagem {
 
     iniciar() {
         this.botaoAnterior.addEventListener('click', () => {
-            if (this.currentCharacterId > 1) {
-                this.currentCharacterId--;
+            if (this.IDpersonagem > 1) {
+                this.IDpersonagem--;
                 this.mostrarPersonagem();
             }
         });
 
         this.botaoProximo.addEventListener('click', () => {
-            this.currentCharacterId++;
+            this.IDpersonagem++;
             this.mostrarPersonagem();
         });
+
+
+        const pesquisaPersonagemInput = document.getElementById('pesquisaPersonagem');
+        pesquisaPersonagemInput.addEventListener('input', this.pesquisarPersonagem.bind(this));
+
+
+        pesquisaPersonagemInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                this.pesquisarPersonagem();
+            }
+        });
+    }
+
+    async pesquisarPersonagem() {
+        const termoPesquisa = document.getElementById('pesquisaPersonagem').value.toLowerCase();
+        const apiUrl = `https://rickandmortyapi.com/api/character/?name=${termoPesquisa}`;
+
+
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        if (data.results && data.results.length > 0) {
+            const personagemEncontrado = data.results[0];
+            this.IDpersonagem = personagemEncontrado.id;
+            this.mostrarPersonagem();
+        } else {
+            console.log("Nenhum personagem encontrado com esse nome.");
+
+            this.exibicaoPersonagem(null);
+        }
     }
 }
+
+
 
 const infoPersonagem = new InfoPersonagem();

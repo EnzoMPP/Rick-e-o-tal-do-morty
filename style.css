@@ -136,6 +136,16 @@ footer {
     color: var(--corDestques);
 }
 
+#pesquisaPersonagem {
+    width: 97%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    background-color: var(--corSecundaria);
+    color: var(--corTextos);
+}
+
 
 .carregando {
     display: flex;
@@ -182,17 +192,17 @@ footer {
 
 @media (max-width: 360px) {
     .layout {
-        grid-template-rows: auto 1fr auto; 
+        grid-template-rows: auto 1fr auto;
     }
 
     header {
-        padding: 0.5rem; 
-        flex-direction: column; 
+        padding: 0.5rem;
+        flex-direction: column;
         align-items: center;
     }
 
     .logo img {
-        height: 80px; 
+        height: 80px;
         margin-bottom: 0.5rem;
     }
 
@@ -200,7 +210,8 @@ footer {
         padding: 1rem;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
         font-size: 1.2rem;
     }
 
@@ -210,12 +221,12 @@ footer {
     }
 
     .infoPersonagem img {
-        width: 150px; 
+        width: 150px;
         height: 150px;
     }
 
     button {
-        padding: 0.5rem 1rem; 
+        padding: 0.5rem 1rem;
         font-size: 0.8rem;
     }
 }
