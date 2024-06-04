@@ -1,243 +1,243 @@
+/* Definição de variáveis para as cores principais do tema */
 :root {
-    --corPrimaria: #2c3e50;
-    --corSecundaria: #34495e;
-    --corDestques: #2ecc71;
-    --corTextos: #ecf0f1;
+    --corPrimaria: #2c3e50;     /* Azul escuro - cor de fundo principal */
+    --corSecundaria: #34495e;   /* Azul médio - cor de fundo secundária */
+    --corDestques: #2ecc71;    /* Verde claro - cor para destaques */
+    --corTextos: #ecf0f1;      /* Cinza claro - cor para textos */
 }
 
+/* Importação da fonte customizada "Rick&Morty" */
 @font-face {
     font-family: 'Rick&Morty';
     src: url('fonts_imgs/FontRick&Morty.ttf');
 }
 
+/* Estilos gerais do corpo do documento */
 body {
-    margin: 0;
-    font-family: Verdana, sans-serif;
+    margin: 0;                 /* Remove as margens padrão do navegador */
+    font-family: Verdana, sans-serif; /* Define a fonte padrão como Verdana */
 }
 
-
+/* Layout principal da página usando grid */
 .layout {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
+    min-height: 100vh;        /* Garante que o layout ocupe a altura total da tela */
+    display: grid;             /* Usa grid para o layout */
+    grid-template-columns: 1fr; /* Uma coluna com largura flexível */
+    grid-template-rows: auto 1fr auto; /* Três linhas: cabeçalho (auto), conteúdo principal (flexível) e rodapé (auto) */
+    grid-template-areas:      /* Define as áreas do grid para posicionar os elementos */
         "header"
         "main"
         "footer";
-    background-color: var(--corPrimaria);
-    color: var(--corTextos);
+    background-color: var(--corPrimaria); /* Cor de fundo principal */
+    color: var(--corTextos);   /* Cor de texto principal */
 }
 
-
+/* Estilos do cabeçalho */
 header {
-    font-family: 'Rick&Morty', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    grid-area: header;
-    background-color: var(--corSecundaria);
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+    font-family: 'Rick&Morty', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Fontes para o cabeçalho */
+    grid-area: header;          /* Posiciona o cabeçalho na área "header" do grid */
+    background-color: var(--corSecundaria); /* Cor de fundo secundária */
+    padding: 1rem;              /* Espaçamento interno */
+    display: flex;             /* Usa flexbox para alinhar os elementos */
+    justify-content: center;   /* Centraliza horizontalmente */
+    align-items: center;      /* Centraliza verticalmente */
+    gap: 1rem;                 /* Espaçamento entre os elementos */
 }
 
-.logo img {
-    height: 100px;
+.logo img {                   /* Estilos para a imagem do logo */
+    height: 100px;            /* Altura da imagem */
 }
 
-
+/* Estilos da área principal de conteúdo */
 .main {
-    grid-area: main;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 2rem;
+    grid-area: main;           /* Posiciona o conteúdo principal na área "main" do grid */
+    max-width: 960px;         /* Largura máxima do conteúdo */
+    margin: 0 auto;            /* Centraliza horizontalmente */
+    padding: 2rem;             /* Espaçamento interno */
 }
 
+/* Estilos dos títulos */
 h1 {
-    font-family: "Rick&Morty", sans-serif;
-    text-align: center;
-    color: var(--corDestques);
+    font-family: "Rick&Morty", sans-serif; /* Fonte customizada para o título principal */
+    text-align: center;        /* Alinha o texto ao centro */
+    color: var(--corDestques); /* Cor de destaque para o título */
 }
 
 h2 {
-    color: var(--corDestques);
-    text-align: center;
+    color: var(--corDestques); /* Cor de destaque para os títulos secundários */
+    text-align: center;        /* Alinha o texto ao centro */
 }
 
 h3 {
-    color: var(--corTextos);
+    color: var(--corTextos);   /* Cor de texto principal para os títulos terciários */
 }
 
-
-
+/* Estilos do container dos personagens */
 #personagens {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
+    display: flex;             /* Usa flexbox para organizar os personagens */
+    flex-direction: column;    /* Organiza os personagens em coluna */
+    align-items: center;      /* Alinha os personagens ao centro horizontalmente */
+    gap: 1.5rem;                /* Espaçamento entre os personagens */
 }
 
+/* Estilos de cada card de personagem */
 .infoPersonagem {
-    display: flex;
-    align-items: flex-start;
-    background-color: var(--corSecundaria);
-    padding: 2rem;
-    border-radius: 10px;
-    width: 100%;
-    gap: 2rem;
-    box-sizing: border-box;
+    display: flex;             /* Usa flexbox para alinhar a imagem e os detalhes */
+    align-items: flex-start;  /* Alinha os itens ao topo do container */
+    background-color: var(--corSecundaria); /* Cor de fundo secundária */
+    padding: 2rem;             /* Espaçamento interno */
+    border-radius: 10px;       /* Bordas arredondadas */
+    width: 100%;               /* Ocupa a largura total do container pai */
+    gap: 2rem;                 /* Espaçamento entre a imagem e os detalhes */
+    box-sizing: border-box;   /* Inclui o padding e a borda no cálculo da largura total */
 }
 
-.infoPersonagem img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 1rem;
+.infoPersonagem img {         /* Estilos da imagem do personagem */
+    width: 200px;             /* Largura da imagem */
+    height: 200px;            /* Altura da imagem */
+    border-radius: 50%;       /* Borda circular */
+    object-fit: cover;       /* Faz a imagem cobrir toda a área, cortando se necessário */
+    margin-right: 1rem;        /* Margem direita para espaçar da descrição */
 }
 
-.detalhesPersonagem {
-    text-align: left;
+.detalhesPersonagem {         /* Estilos dos detalhes do personagem */
+    text-align: left;         /* Alinha o texto à esquerda */
 }
 
-.detalhesPersonagem p {
-    margin: 0.5rem 0;
+.detalhesPersonagem p {       /* Estilos dos parágrafos dos detalhes */
+    margin: 0.5rem 0;         /* Margem superior e inferior */
 }
 
-
+/* Estilos do container dos botões */
 .botoes {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
+    display: flex;             /* Usa flexbox para alinhar os botões */
+    justify-content: center;   /* Centraliza horizontalmente */
+    gap: 0.5rem;                /* Espaçamento entre os botões */
+    margin-top: 1rem;          /* Margem superior */
 }
 
+/* Estilos dos botões */
 button {
-    background-color: var(--corDestques);
-    color: var(--corTextos);
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: inherit;
+    background-color: var(--corDestques); /* Cor de fundo de destaque */
+    color: var(--corTextos);   /* Cor de texto principal */
+    padding: 0.8rem 1.5rem;    /* Espaçamento interno */
+    border: none;              /* Remove a borda */
+    border-radius: 5px;       /* Bordas arredondadas */
+    cursor: pointer;          /* Muda o cursor para indicar que é clicável */
+    font-family: inherit;     /* Herda a fonte do elemento pai */
 }
 
-
+/* Estilos do rodapé */
 footer {
-    grid-area: footer;
-    background-color: var(--corSecundaria);
-    padding: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    grid-area: footer;          /* Posiciona o rodapé na área "footer" do grid */
+    background-color: var(--corSecundaria); /* Cor de fundo secundária */
+    padding: 0.5rem;            /* Espaçamento interno */
+    display: flex;             /* Usa flexbox para alinhar os elementos */
+    justify-content: center;   /* Centraliza horizontalmente */
+    align-items: center;      /* Centraliza verticalmente */
 }
 
+/* Estilos para informações destacadas */
 .infos {
-    color: var(--corDestques);
+    color: var(--corDestques); /* Cor de destaque */
 }
 
+/* Estilos do campo de pesquisa */
 #pesquisaPersonagem {
-    width: 97%;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    background-color: var(--corSecundaria);
-    color: var(--corTextos);
+    width: 97%;               /* Ocupa quase toda a largura do container pai */
+    padding: 0.8rem;           /* Espaçamento interno */
+    border: none;              /* Remove a borda */
+    border-radius: 5px;       /* Bordas arredondadas */
+    margin-bottom: 1rem;       /* Margem inferior */
+    background-color: var(--corSecundaria); /* Cor de fundo secundária */
+    color: var(--corTextos);   /* Cor de texto principal */
 }
 
-
+/* Estilos do indicador de carregamento */
 .carregando {
-    font-family: 'Rick&Morty';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
+    font-family: 'Rick&Morty'; /* Fonte customizada */
+    display: flex;             /* Usa flexbox para alinhar os elementos */
+    justify-content: center;   /* Centraliza horizontalmente */
+    align-items: center;      /* Centraliza verticalmente */
+    flex-direction: column;    /* Organiza os elementos em coluna */
+    position: fixed;           /* Posiciona o elemento fixo na tela */
+    top: 0;                    /* No topo da tela */
+    left: 0;                   /* À esquerda da tela */
+    width: 100%;               /* Ocupa a largura total da tela */
+    height: 100%;              /* Ocupa a altura total da tela */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo preto semi-transparente */
+    z-index: 1000;             /* Garante que o elemento fique acima de tudo*/
+}
+.carregando img {                /* Estilos da imagem de carregamento */
+    width: 150px;                 /* Largura da imagem */
+    height: 150px;                /* Altura da imagem */
+    animation: spin 1s linear infinite; /* Aplica a animação de rotação */
 }
 
-.carregando img {
-    width: 150px;
-    height: 150px;
-    animation: spin 1s linear infinite;
-}
-
+/* Definição da animação de rotação */
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-
+/* Media query para telas com largura máxima de 768px (tablets e alguns desktops menores) */
 @media (max-width: 768px) {
-    .infoPersonagem {
-        flex-direction: column;
-        align-items: center;
+    .infoPersonagem {             /* Ajustes para o card do personagem */
+        flex-direction: column;    /* Muda a direção do flexbox para coluna */
+        align-items: center;      /* Centraliza os elementos horizontalmente */
     }
 
-    .infoPersonagem img {
-        margin-right: 0;
-        margin-bottom: 1rem;
+    .infoPersonagem img {         /* Ajustes para a imagem do personagem */
+        margin-right: 0;          /* Remove a margem direita */
+        margin-bottom: 1rem;       /* Adiciona margem inferior */
     }
 }
 
-
+/* Media query para telas com largura máxima de 360px (celulares pequenos) */
 @media (max-width: 360px) {
-    .layout {
-        grid-template-rows: auto 1fr auto;
+    .layout {                     /* Ajustes no layout geral */
+        grid-template-rows: auto 1fr auto; /* Ajusta as alturas das linhas do grid */
     }
 
-    header {
-        padding: 0.5rem;
-        flex-direction: column;
-        align-items: center;
+    header {                     /* Ajustes no cabeçalho */
+        padding: 0.5rem;          /* Reduz o espaçamento interno */
+        flex-direction: column;    /* Muda a direção do flexbox para coluna */
+        align-items: center;      /* Centraliza os elementos horizontalmente */
     }
 
-    .logo img {
-        height: 80px;
-        margin-bottom: 0.5rem;
+    .logo img {                   /* Ajustes na imagem do logo */
+        height: 80px;            /* Reduz a altura da imagem */
+        margin-bottom: 0.5rem;    /* Adiciona margem inferior */
     }
 
-    .main {
-        padding: 1rem;
+    .main {                      /* Ajustes na área principal */
+        padding: 1rem;           /* Reduz o espaçamento interno */
     }
 
-    h1,
-    h2 {
-        font-size: 1.2rem;
+    h1, h2 {                     /* Ajustes nos títulos */
+        font-size: 1.2rem;       /* Diminui o tamanho da fonte */
     }
 
-    .infoPersonagem {
-        padding: 1rem;
-        gap: 1rem;
+    .infoPersonagem {             /* Ajustes no card do personagem */
+        padding: 1rem;           /* Reduz o espaçamento interno */
+        gap: 1rem;                /* Reduz o espaçamento entre os elementos */
     }
 
-    .infoPersonagem img {
-        width: 150px;
-        height: 150px;
+    .infoPersonagem img {         /* Ajustes na imagem do personagem */
+        width: 150px;             /* Reduz a largura da imagem */
+        height: 150px;            /* Reduz a altura da imagem */
     }
 
-    button {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
+    button {                     /* Ajustes nos botões */
+        padding: 0.5rem 1rem;    /* Reduz o espaçamento interno */
+        font-size: 0.8rem;       /* Diminui o tamanho da fonte */
     }
 }
 
+/* Comentários sobre as escolhas de design */
+/* Uso das cores:
+Escolhemos uma paleta de cores predominantemente análoga para o nosso site, combinando tons de azul (#2c3e50 e #34495e) e verde (#2ecc71). O contraste entre o azul e o verde facilita a leitura, enquanto a utilização de tons análogos traz harmonia e profundidade. Adicionamos um tom próximo ao branco (#ecf0f1) para alguns textos, garantindo legibilidade e contraste. Essa paleta faz uma referência à estética de Rick & Morty, com seus visuais futuristas e alienígenas, criando uma conexão visual com o tema. */
 
-/* Uso das cores: 
-Escolhemos uma paleta de cores predominantemente análoga para o nosso site, combinando tons de azul (#2c3e50 e #34495e) e verde (#2ecc71). O contraste entre o azul e o verde facilita a leitura, enquanto a utilização de tons análogos traz harmonia e profundidade. Adicionamos um tom próximo ao branco (#ecf0f1) para alguns textos, garantindo legibilidade e contraste. Essa paleta faz uma referência à estética de Rick & Morty, com seus visuais futuristas e alienígenas, criando uma conexão visual com o tema.
-
-
-Uso das fontes: 
-Para o titulo principal da pagina utilizamos a fonte utilizada no próprio desenho do tema, ''Rick&Morty'', para causar uma impressão de fidelidade do nosso site com o próprio tema escolhido, remetendo a elementos vistos na série.
+/* Uso das fontes:
+Para o título principal da página utilizamos a fonte utilizada no próprio desenho do tema, ''Rick&Morty'', para causar uma impressão de fidelidade do nosso site com o próprio tema escolhido, remetendo a elementos vistos na série.
 Para o restante da página utilizamos ''Verdana'' como fonte, por ser uma fonte de fácil leitura, sem serifa, assim trazendo o ar de descontração e informalidade da página. */
