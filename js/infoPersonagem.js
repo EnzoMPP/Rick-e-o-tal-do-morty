@@ -27,7 +27,7 @@ class InfoPersonagem {
                 throw new Error('Personagem não encontrado');
             }
             const data = await response.json();
-            return new Personagem(data); // Cria um objeto Personagem
+            return new Personagem(data);
         } catch (error) {
             console.error('Erro ao buscar personagem:', error);
             alert(error.message);
@@ -71,5 +71,4 @@ class InfoPersonagem {
     }
 }
 
-// Inicializa o InfoPersonagem
 const infoPersonagem = new InfoPersonagem();
