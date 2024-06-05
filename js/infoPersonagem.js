@@ -40,8 +40,8 @@ class InfoPersonagem {
         if (!personagem) return; // Se não houver personagem, não faz nada.
 
         // Atualiza os elementos do DOM com os dados do personagem:
-        this.imagemPersonagem.src = personagem.imagem;
-        this.nomePersonagem.textContent = personagem.nome;
+        this.imagemPersonagem.setAttribute('src',personagem.imagem);
+        this.nomePersonagem.innerText = personagem.nome;
         this.statusPersonagem.innerHTML = `<span class=infos> Status: </span>${personagem.status}`;
         this.especiePersonagem.innerHTML = `<span class=infos> Espécie: </span>${personagem.especie}`;
         this.generoPersonagem.innerHTML = `<span class=infos>Gênero: </span>${personagem.genero}`;
