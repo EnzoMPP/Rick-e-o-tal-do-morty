@@ -176,9 +176,13 @@ footer {
 
 /* Definição da animação de rotação */
 @keyframes spin {
+    /* No início da animação (0%), o elemento não terá rotação (0 graus) */
     0% { transform: rotate(0deg); }
+    
+    /* No final da animação (100%), o elemento terá girado 360 graus, completando um círculo completo */
     100% { transform: rotate(360deg); }
 }
+
 
 /* Media query para telas com largura máxima de 768px (tablets e alguns desktops menores) */
 @media (max-width: 768px) {
